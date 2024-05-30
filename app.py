@@ -16,18 +16,42 @@ st.markdown(
 )
 
 # Streamlit app
-st.markdown("<span style='font-size: 24px;'>⚽Football Player Value Predictor⚽</span>", unsafe_allow_html=True)
+st.markdown("<span style='font-size: 28px;'>⚽Football Player Value Predictor⚽</span>", unsafe_allow_html=True)
 
 st.markdown("<span style='font-size: 20px;'>📊 Player Attributes</span>", unsafe_allow_html=True)
 # Define the API endpoint
 #url = 'https://uc7-api-2.onrender.com/'
 
-#  params = {
-#      "age": 21.0,
-#           "appearance": 34,
-#           "minutes_played": 2758,
-#           "highest_value": 2000000"
-#  }
+
+age=st.number_input(" player age ", value=None, placeholder="Enter the player age please")
+appearance=st.number_input("Appearance ", value=None, placeholder="Enter the time of appearance please")
+minutes_played=st.number_input("Appearance ", value=None, placeholder="Enter minutes of play please")
+highest_value=st.number_input("Appearance ", value=None, placeholder="Enter highest value please")
+
+
+ input = {
+     "age": age,
+          "appearance": appearance,
+          "minutes_played": minutes_played,
+          "highest_value": highest_value
+ }
+
+
+if st.button('Get Prediction'):
+    try:
+        res = requests.post(
+            url="https://uc7-api-2.onrender.com/predict",
+            headers={"Content-Type": "application/json"},
+            data=json.dumps(inputs)
+        )
+        res.raise_for_status()  # Check for HTTP request errors
+        st.subheader(f"Prediction result 🚀 = {res.json()}")
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"HTTP Request failed: {e}")
+    except ValueError as e:
+        st.error(f"Failed to parse JSON response: {e}")
+
 
 # # Make the API call
 #  response = requests.get(url, params=params)
