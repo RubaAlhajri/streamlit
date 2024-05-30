@@ -43,7 +43,7 @@ if st.button('Get Prediction'):
     if age and appearance and minutes_played and highest_value:
         try:
             res = requests.post(
-                url="https://use-case-7-8gxt.onrender.com/predict",
+                url="https://uc7-api-2.onrender.com/predict",
                 headers={"Content-Type": "application/json"},
                 data=json.dumps(inputs)
             )
