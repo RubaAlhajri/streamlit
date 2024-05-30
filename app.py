@@ -28,8 +28,7 @@ appearance=st.number_input("Appearance ", value=None, placeholder="Enter the tim
 minutes_played=st.number_input("Appearance ", value=None, placeholder="Enter minutes of play please")
 highest_value=st.number_input("Appearance ", value=None, placeholder="Enter highest value please")
 
-
- input = {
+input = {
      "age": age,
           "appearance": appearance,
           "minutes_played": minutes_played,
