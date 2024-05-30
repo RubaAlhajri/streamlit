@@ -7,11 +7,17 @@ import streamlit as st
 # Define the API endpoint
 url = 'https://uc7-api-2.onrender.com/'
 
-# Make the API call
-response = requests.get(url)
+ params = {
+     "age": 21.0,
+          "appearance": 34,
+          "minutes_played": 2758,
+          "highest_value": 2000000"
+ }
 
-# Display the response in the app
-st.write(response.json())
+# Make the API call
+ response = requests.get(url, params=params)
+ print(response.json())
+
 # def fetch_data(type):
 #     with st.spinner("Working..."):
 #         ### prepare API key and URL
