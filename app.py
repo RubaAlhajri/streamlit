@@ -40,15 +40,20 @@ inputs = {
  }
 
 
+# Prediction button
 if st.button('Get Prediction'):
     try:
         res = requests.post(
-            url="https://uc7-api-2.onrender.com/predict",
+            url="https://use-case-7-8gxt.onrender.com/predict",
             headers={"Content-Type": "application/json"},
             data=json.dumps(inputs)
         )
         res.raise_for_status()  # Check for HTTP request errors
-        st.subheader(f"Prediction result 🚀 = {res.json()}")
+        prediction = res.json().get("prediction")  # Extract the prediction value
+        if prediction is not None:
+            st.subheader(f"Prediction result 🚀 = {prediction}")
+        else:
+            st.error("No prediction found in the response.")
 
     except requests.exceptions.RequestException as e:
         st.error(f"HTTP Request failed: {e}")
