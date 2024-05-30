@@ -1,6 +1,4 @@
 
-
-
 def display(text, font="sans-serif", color="white", size="25px"):
     st.markdown(
         f'<p style="font-family:{font}; color:{color}; font-size: {size};">{text}</p>',
