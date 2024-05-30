@@ -16,9 +16,9 @@ st.markdown(
 )
 
 # Streamlit app
-st.title("⚽ Football Player Value Predictor⚽")
+st.title("⚽Football Player Value Predictor⚽")
 
-st.title("📊 Player Attributes")
+st.title("<span style='font-size: 20px;'>📊 Player Attributes</span>", unsafe_allow_html=True)
 # Define the API endpoint
 #url = 'https://uc7-api-2.onrender.com/'
 
