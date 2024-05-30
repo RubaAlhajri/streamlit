@@ -16,7 +16,7 @@ st.markdown(
 )
 
 # Streamlit app
-st.title("⚽Football Player Value Predictor⚽")
+st.markdown("<span style='font-size: 24px;'>⚽Football Player Value Predictor⚽</span>", unsafe_allow_html=True)
 
 st.markdown("<span style='font-size: 20px;'>📊 Player Attributes</span>", unsafe_allow_html=True)
 # Define the API endpoint
