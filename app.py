@@ -40,26 +40,19 @@ inputs = {
  }
 
 if st.button('Get Prediction'):
-    if age and appearance and minutes_played and highest_value:
-        try:
-            res = requests.post(
-                url="https://use-case-7-8gxt.onrender.com/predict",
-                headers={"Content-Type": "application/json"},
-                data=json.dumps(inputs)
-            )
-            res.raise_for_status()  # Check for HTTP request errors
-            prediction = res.json().get("prediction")  # Extract the prediction value
-            if prediction is not None:
-                st.subheader(f"Prediction result 🚀 = {prediction}")
-            else:
-                st.error("No prediction found in the response.")
+    try:
+        res = requests.post(
+            url="https://deplument-usecase7.onrender.com/predict",
+            headers={"Content-Type": "application/json"},
+            data=json.dumps(inputs)
+        )
+        res.raise_for_status()  # Check for HTTP request errors
+        st.subheader(f"Prediction Result  = {res.json()}")
 
-        except requests.exceptions.RequestException as e:
-            st.error(f"HTTP Request failed: {e}")
-        except ValueError as e:
-            st.error(f"Failed to parse JSON response: {e}")
-    else:
-        st.error("Please fill in all input fields.")
+    except requests.exceptions.RequestException as e:
+        st.error(f"HTTP Request failed: {e}")
+    except ValueError as e:
+        st.error(f"Failed to parse JSON response: {e}")
 
 
 # # Make the API call
