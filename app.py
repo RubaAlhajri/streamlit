@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import streamlit as st
 
-data = requests.get("'https://jsonplaceholder.typicode.com/todos/1'").json()
+data = requests.get("'https://uc7-api-2.onrender.com/'").json()
 
 st.write(data)
 
