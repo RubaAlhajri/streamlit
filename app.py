@@ -50,7 +50,7 @@ if st.button('Get Prediction'):
             res.raise_for_status()  # Check for HTTP request errors
             prediction = res.json() # Extract the prediction value
             if prediction is not None:
-                st.subheader(f"Prediction result 🚀 = {prediction}")
+                st.subheader(f"Prediction result = {prediction}")
             else:
                 st.error("No prediction found in the response.")
 
