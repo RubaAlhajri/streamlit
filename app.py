@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import streamlit as st
-
+import json
 
 st.markdown(
     """
@@ -28,7 +28,7 @@ appearance=st.number_input("Appearance ", value=None, placeholder="Enter the tim
 minutes_played=st.number_input("minutes_played ", value=None, placeholder="Enter minutes of play please")
 highest_value=st.number_input("highest_value ", value=None, placeholder="Enter highest value please")
 
-input = {
+inputs = {
      "age": age,
           "appearance": appearance,
           "minutes_played": minutes_played,
