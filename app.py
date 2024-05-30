@@ -25,8 +25,8 @@ st.markdown("<span style='font-size: 20px;'>📊 Player Attributes</span>", unsa
 
 age=st.number_input(" player age ", value=None, placeholder="Enter the player age please")
 appearance=st.number_input("Appearance ", value=None, placeholder="Enter the time of appearance please")
-minutes_played=st.number_input("Appearance ", value=None, placeholder="Enter minutes of play please")
-highest_value=st.number_input("Appearance ", value=None, placeholder="Enter highest value please")
+minutes_played=st.number_input("minutes_played ", value=None, placeholder="Enter minutes of play please")
+highest_value=st.number_input("highest_value ", value=None, placeholder="Enter highest value please")
 
 input = {
      "age": age,
