@@ -19,6 +19,13 @@ def fetch_data(type):
             status = "ERROR"
     return status, data
 
+
+def display(text, font="sans-serif", color="white", size="25px"):
+    st.markdown(
+        f'<p style="font-family:{font}; color:{color}; font-size: {size};">{text}</p>',
+        unsafe_allow_html=True,
+    )
+
 # st.image('https://www.ar8ar.com/wp-content/uploads/2022/10/%D8%AC%D8%AF%D8%A7%D8%B1%D8%A7%D8%AA.png')
 # st.markdown("<h1 style='color: #a38d62;'>Jadarat</h1>", unsafe_allow_html=True)
 
