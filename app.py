@@ -3,20 +3,30 @@ import requests
 import streamlit as st
 
 
-
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: linear-gradient(to right, #4b6cb7, #182848);
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 # Define the API endpoint
-url = 'https://uc7-api-2.onrender.com/'
+#url = 'https://uc7-api-2.onrender.com/'
 
- params = {
-     "age": 21.0,
-          "appearance": 34,
-          "minutes_played": 2758,
-          "highest_value": 2000000"
- }
+#  params = {
+#      "age": 21.0,
+#           "appearance": 34,
+#           "minutes_played": 2758,
+#           "highest_value": 2000000"
+#  }
 
-# Make the API call
- response = requests.get(url, params=params)
- print(response.json())
+# # Make the API call
+#  response = requests.get(url, params=params)
+#  print(response.json())
 
 # def fetch_data(type):
 #     with st.spinner("Working..."):
