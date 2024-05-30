@@ -2,29 +2,39 @@ import streamlit as st
 import requests
 import streamlit as st
 
-def fetch_data(type):
-    with st.spinner("Working..."):
-        ### prepare API key and URL
-        api_key = st.secrets["rnd_MrLtgi0C13M99vvyKr526k74wRPU"]
-        api_url = f"https://uc7-api-2.onrender.com{type}"
-
-        ### invoke API and get the response
-        response = requests.get(url=api_url, headers={"X-Api-Key": api_key})
-        if response.status_code == requests.codes.ok:
-            ### Convert data to JSON format
-            data = jsonify(response)
-            status = "OK"
-        else:
-            data = {"code": response.status_code, "message": response.text}
-            status = "ERROR"
-    return status, data
 
 
-def display(text, font="sans-serif", color="white", size="25px"):
-    st.markdown(
-        f'<p style="font-family:{font}; color:{color}; font-size: {size};">{text}</p>',
-        unsafe_allow_html=True,
-    )
+# Define the API endpoint
+url = 'https://uc7-api-2.onrender.com/'
+
+# Make the API call
+response = requests.get(url)
+
+# Display the response in the app
+st.write(response.json())
+# def fetch_data(type):
+#     with st.spinner("Working..."):
+#         ### prepare API key and URL
+#         api_key = st.secrets["rnd_MrLtgi0C13M99vvyKr526k74wRPU"]
+#         api_url = f"https://uc7-api-2.onrender.com{type}"
+
+#         ### invoke API and get the response
+#         response = requests.get(url=api_url, headers={"X-Api-Key": api_key})
+#         if response.status_code == requests.codes.ok:
+#             ### Convert data to JSON format
+#             data = jsonify(response)
+#             status = "OK"
+#         else:
+#             data = {"code": response.status_code, "message": response.text}
+#             status = "ERROR"
+#     return status, data
+
+
+# def display(text, font="sans-serif", color="white", size="25px"):
+#     st.markdown(
+#         f'<p style="font-family:{font}; color:{color}; font-size: {size};">{text}</p>',
+#         unsafe_allow_html=True,
+#     )
 
 # st.image('https://www.ar8ar.com/wp-content/uploads/2022/10/%D8%AC%D8%AF%D8%A7%D8%B1%D8%A7%D8%AA.png')
 # st.markdown("<h1 style='color: #a38d62;'>Jadarat</h1>", unsafe_allow_html=True)
